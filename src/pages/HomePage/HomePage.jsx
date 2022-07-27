@@ -1,6 +1,7 @@
 import Slider from 'react-slick'
 import SliderCard from '../../components/sliderCard/SliderCard'
 import PizzaCard from '../../components/PizzaCard'
+import Bevarage from '../../components/bevarge/Bevarage'
 
 const sliderCards = [
   {
@@ -55,17 +56,40 @@ function HomePage(props) {
   }
   return (
     <div className="container page">
+      
+      {/* Карточки */}
       <Slider {...settings}>
-        
-        {
-          sliderCards.map((item)=><SliderCard img={item.img}/>)
-        }
+        {sliderCards.map((item) => (
+          <SliderCard img={item.img} />
+        ))}
       </Slider>
-      <h1 className='title'>Пицца</h1>
-      <div className='cards_wrapper'>
-     {
-      props.pizzas.map((pizza)=>{ return <PizzaCard title={pizza.title} description={pizza.description} price={pizza.price}/>})
-     }
+
+      {/* Пиццы */}
+      <h1 className="title">Пицца</h1>
+      <div className="cards_wrapper">
+        {props.pizzasH.map((ItemPizza) => {
+          return (
+            <PizzaCard
+              title={ItemPizza.title}
+              description={ItemPizza.description}
+              price={ItemPizza.price}
+            />
+          )
+        })}
+      </div>
+
+      {/* Напитки */}
+      <h1 className="title">Напитки</h1>
+      <div className="cards_wrapper">
+        {props.bevarageH.map((ItemBevarage) => {
+          return (
+            <Bevarage
+              title={ItemBevarage.title}
+              description={ItemBevarage.description}
+              price={ItemBevarage.price}
+            />
+          )
+        })}
       </div>
     </div>
   )
