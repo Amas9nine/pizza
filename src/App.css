@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -9,6 +10,20 @@
   margin: 0 auto;
 }
 
+.page{
+  padding:  50px 0px;
+}
+.cards_wrapper{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.title{
+font-weight: 500;
+margin-top: 50px;
+font-family: 'Roboto',sans-serif
+}
+
 .btn {
   background: rgb(255, 105, 0);
   color: #fff;
@@ -18,4 +33,5 @@
   padding: 8px 20px;
   line-height: 24px;
   font-size: 16px;
+  cursor: pointer;
 }
