@@ -1,0 +1,10 @@
+.wrapper {
+    width: 200px;
+    height: 250px;
+    padding:  0 10px;
+}
+
+.wrapper img {
+    width: 50%;
+    height: 50%;
+}

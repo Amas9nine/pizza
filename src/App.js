@@ -5,22 +5,31 @@ import HomePage from "./pages/HomePage/HomePage";
 import { useEffect, useState } from "react";
 
 function App() {
- const [pizzas,setPizzas] = useState([])
- const [bevarage,setBevarage] = useState([])
+  const [pizzas, setPizzas] = useState([])
+  const [bevarage, setBevarage] = useState([])
+  const [isLoading, setLoading] = useState(true)
+
  
-//  PIZZA
   useEffect(() => {
-    fetch("https://62d01fd51cc14f8c0884e2b6.mockapi.io/pizza")
-      .then((res) => res.json())
-      .then((data) =>setPizzas(data));
+    Promise.all([
+      fetch("https://62d01fd51cc14f8c0884e2b6.mockapi.io/pizza"),
+      fetch("https://62d01fd51cc14f8c0884e2b6.mockapi.io/pizza")
+    ]).then((res)=>{
+      console.log(res)
+      Promise.all(res.map((item)=> item.json()))
+      .then((data)=>{
+        console.log(data)
+        setLoading(false)
+        setPizzas(data[0])
+        setBevarage(data[1])
+      })
+    })
   }, []);
 
-  // BEVARAGE
-  useEffect(() => {
-    fetch("https://62d01fd51cc14f8c0884e2b6.mockapi.io/pizza")
-      .then((res) => res.json())
-      .then((data) =>setBevarage(data));
-  }, []);
+  if (isLoading) {
+    return <h1>..isLoading</h1>
+  }
+
 
   return (
     <div className="App">

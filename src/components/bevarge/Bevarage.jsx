@@ -3,11 +3,10 @@ import ModuleObjectKeys from './Bevarage.module.css'
 
 function Bevarage(props) {
   return (
-	<div className={ModuleObjectKeys.wrapper}>
+    <div className={ModuleObjectKeys.wrapper}>
       <div className={ModuleObjectKeys.imageWrapper}>
         <img
-          src="https://dodopizza-a.akamaihd.net/static/Img/Products/b5f113ca1255415a89e6c2b542484a27_292x292.jpeg"
-          alt="GOOD BEVARAGE"
+          src={props.img || "https://cdn.picpng.com/pizza/pizza-pizza-icon-pizza-slice-56532.png"} alt="GOOD BEVARAGE"
         />
       </div>
       <div className={ModuleObjectKeys.title}> {props.title}</div>
