@@ -1,6 +1,16 @@
+import BasketModel from '../basketModal/BasketModel'
 import moduleObjectKeyS from './Header.module.css'
 
 function Header() {
+
+	{/* <HEADER TWO /> { */ }
+	function onBasketOpen(event) {
+		// event.preventDefault()
+		alert(`its ok`)
+	}
+
+	{/* <HEADER TWO /> }*/ }
+
 	return (
 		<header className='container'>
 			<div className={moduleObjectKeyS.Header}>
@@ -55,11 +65,12 @@ function Header() {
 							</a>
 						</button>
 					</div>
-
-
 				</div>
-
 			</div>
+
+
+
+			{/* <HEADER TWO /> */}
 
 			<div className={moduleObjectKeyS.HeaderTwo}>
 				<div className={moduleObjectKeyS.LeftTwoHeader}>
@@ -75,11 +86,14 @@ function Header() {
 					<a href='#' target_blank>Прямой эфир</a>
 				</div>
 				<div className={moduleObjectKeyS.RightTwoHeader}>
-					<button className='btn'>
+					<button onClick={onBasketOpen} className='btn'>
 						<a className={moduleObjectKeyS.a_Basket} href="#" target="_blank">
 							Корзина
 						</a>
 					</button>
+
+					<BasketModel />
+
 				</div>
 			</div>
 
